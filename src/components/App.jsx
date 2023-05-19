@@ -10,22 +10,22 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handleLeaveFeedback = event => {
-     console.log(event.target.name);
+  const handleLeaveFeedback = event => { 
+    console.log(event.target.name);
     const { name } = event.target;
 
     switch (name) {
 
       case 'good':
-        setGood(good + 1)
+        setGood(prevState => prevState + 1)  // або (good + 1)
         break;
 
     case 'neutral':
-      setNeutral(neutral + 1)
+      setNeutral(prevState => prevState + 1)  // або (neutral + 1)
       break;
 
       case 'bad':
-        setBad(bad + 1)
+        setBad(prevState => prevState + 1)    // або (bad + 1)
         break;
 
       default:
@@ -41,12 +41,14 @@ const countPositiveFeedbackPercentage = () => {
   return ((good / countTotalFeedback())*100).toFixed()
 };
 
+const options = ['good', 'neutral', 'bad']
+
   return (
 
     <div>
 <Section title="Please leave feedback">
       <FeedbackOptions 
-      options= {['good', 'neutral', 'bad']}   //options={Object.keys(this.state)} // 
+      options= {options}                           // options= {['good', 'neutral', 'bad']}  
       onLeaveFeedback={handleLeaveFeedback} />
 </Section>
 
