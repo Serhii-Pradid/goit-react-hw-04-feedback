@@ -10,9 +10,9 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handleLeaveFeedback = event => { 
-    console.log(event.target.name);
-    const { name } = event.target;
+  const handleLeaveFeedback = (name) => {    // event
+      //console.log(event.currentTarget.name);
+      //const { name } = event.currentTarget;
 
     switch (name) {
 
@@ -64,14 +64,13 @@ const options = ['good', 'neutral', 'bad']
   positivePercentage={countPositiveFeedbackPercentage()} />
   ) : (
 <Notification message="There is no feedback" />
-  )};
+  )}
 
 </Section>
 
     </div>
   );
 }
-
 
 
 

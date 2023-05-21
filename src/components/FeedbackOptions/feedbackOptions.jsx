@@ -11,7 +11,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
                 key={btn}
                 type='button'
                 name={btn}
-                onClick={onLeaveFeedback} className={css.btnOnClick} >
+                onClick={()=>onLeaveFeedback(btn)} className={css.btnOnClick} >
                 <span className={css.btnTitle}>{btn}</span>
             </button>
              ))}
